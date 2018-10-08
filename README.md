@@ -11,3 +11,4 @@ http://code.ciphertrick.com/2016/06/05/read-excel-files-convert-json-node-js/
 4) `node app.js` <br>
 5) In your browser `http://localhost:3000` <br>
 6) Upload excel file and see result <br>
+7) The Result also stored by generating file named op.json. in the Project Folder.
