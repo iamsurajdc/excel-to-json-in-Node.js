@@ -1,4 +1,5 @@
-	var express = require('express'); 
+    var fs = require("fs");
+    var express = require('express'); 
     var app = express(); 
     var bodyParser = require('body-parser');
     var multer = require('multer');
@@ -58,8 +59,12 @@
                 }, function(err,result){
                     if(err) {
                         return res.json({error_code:1,err_desc:err, data: null});
-                    } 
-                    res.json({error_code:0,err_desc:null, data: result});
+                    }
+                       // Json data will render on op screen and saved to op.json file as well.
+                    res.json({error_code:0,err_desc:null, data: {result}});
+                     fs.appendFile("op.json", JSON.stringify(result), () => {
+                                console.log(" result Saved to op.JSON");
+                     });
                 });
             } catch (e){
                 res.json({error_code:1,err_desc:"Corupted excel file"});
